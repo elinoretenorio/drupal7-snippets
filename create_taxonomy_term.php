@@ -10,6 +10,15 @@
 * @email   elinore.tenorio@gmail.com
 */
 
+// root directory of drupal installation 
+define('DRUPAL_ROOT', getcwd()); 
+  
+// call bootstrap 
+include_once DRUPAL_ROOT . '/includes/bootstrap.inc'; 
+  
+// bootstrap all of drupal 
+drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL); 
+
 function createTaxonomyTerm($vid, $name, $description)  
 { 
   $term = new stdClass(); 
@@ -22,4 +31,9 @@ function createTaxonomyTerm($vid, $name, $description)
 }
 
 $tid = createTaxonomyTerm(1, 'Sample term', 'optional description');
+
+// clear all cache 
+cache_clear_all(); 
+  
+die(); 
 ?>
